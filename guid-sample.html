@@ -1,1 +1,15 @@
+<h2>Required Free Space for System Logging<h2>
 
+
+If you used Auto Deploy to install your ESXi 7.0 host, or if you set up a log directory separate from the default location in a scratch directory on the VMFS volume, you might need to change your current log size and rotation settings to ensure that enough space is available for system logging .
+
+All vSphere components use this infrastructure. The default values for log capacity in this infrastructure vary, depending on the amount of storage available and on how you have configured system logging. Hosts that are deployed with Auto Deploy store logs on a RAM disk, which means that the amount of space available for logs is small.
+
+If your host is deployed with Auto Deploy, reconfigure your log storage in one of the following ways:
+
+    Redirect logs over the network to a remote collector.
+    Redirect logs to a NAS or NFS store.
+
+If you redirect logs to non-default storage, such as a NAS or NFS store, you might also want to reconfigure log sizing and rotations for hosts that are installed to disk.
+
+You do not need to reconfigure log storage for ESXi hosts that use the default configuration, which stores logs in a scratch directory on the VMFS volume. For these hosts, ESXi 7.0 configures logs to best suit your installation, and provides enough space to accommodate log messages. 
